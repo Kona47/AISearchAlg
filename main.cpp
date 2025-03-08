@@ -4,7 +4,7 @@ using namespace std;
 
 
 
-const double EARTH_RADIUS = 6371.0;
+double earthRadius = 6371.0;
 // Function to add an adjacency between two cities
 void addAdjacency(map<string, vector<string>>& adjacencies, const string& city1, const string& city2) {
     adjacencies[city1].push_back(city2);
@@ -22,7 +22,7 @@ map<string, vector<string>> parseAdjacenciesFromFile(const string& filename) {
     }
 
     string line, city1, city2;
-    // Read each line (pair of cities) from the file
+
     while (getline(file, line)) {
         stringstream ss(line);
         ss >> city1 >> city2;
@@ -73,7 +73,7 @@ double haversine(const pair<double, double>& coord1, const pair<double, double>&
                sin(dlon / 2) * sin(dlon / 2);
     double c = 2 * atan2(sqrt(a), sqrt(1 - a));
 
-    return EARTH_RADIUS * c; // Distance in kilometers
+    return earthRadius * c; // Distance in kilometers
 }
 
 // Function to calculate total distance for a given path
