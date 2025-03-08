@@ -58,22 +58,22 @@ map<string, pair<double, double>> readCoordinatesFromCSV(const string& filename)
     return coordinates;
 }
 
-// Haversine formula to calculate distance between two latitude/longitude points
+//The haversine formula, calculates distance between 2 latitude and longitude locations, From ChatGPT.
 double haversine(const pair<double, double>& coord1, const pair<double, double>& coord2) {
-    double lat1 = coord1.first * M_PI / 180.0;
-    double lon1 = coord1.second * M_PI / 180.0;
-    double lat2 = coord2.first * M_PI / 180.0;
-    double lon2 = coord2.second * M_PI / 180.0;
+    double latitude1 = coord1.first * M_PI / 180.0;
+    double longitude1 = coord1.second * M_PI / 180.0;
+    double latitude2 = coord2.first * M_PI / 180.0;
+    double longitude2 = coord2.second * M_PI / 180.0;
 
-    double dlat = lat2 - lat1;
-    double dlon = lon2 - lon1;
+    double dlat = latitude2 - latitude1;
+    double dlon = longitude2 - longitude1;
 
     double a = sin(dlat / 2) * sin(dlat / 2) +
-               cos(lat1) * cos(lat2) * 
+               cos(latitude1) * cos(latitude2) * 
                sin(dlon / 2) * sin(dlon / 2);
     double c = 2 * atan2(sqrt(a), sqrt(1 - a));
 
-    return earthRadius * c; // Distance in kilometers
+    return earthRadius * c;
 }
 
 // Function to calculate total distance for a given path
