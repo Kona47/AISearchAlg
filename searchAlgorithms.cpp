@@ -76,7 +76,7 @@ vector<string> dfs(const map<string, vector<string>>& adjacencies, const string&
     return {};
 }
 
-// Iterative Deepening Depth-First Search to find a path between two cities
+// Iterative Deepening Depth-First Search to find a path between two cities. Implemented with help from ChatGPT
 vector<string> iddfs(const map<string, vector<string>>& adjacencies, const string& startCity, const string& goal, int maxDepth) {
     for (int depth = 0; depth <= maxDepth; ++depth) {
         stack<pair<string, int>> toExplore;  
@@ -114,6 +114,7 @@ vector<string> iddfs(const map<string, vector<string>>& adjacencies, const strin
     return {};
 }
 
+//Best first search algorithm to find shortest path. Implemented with help from ChatGPT
 vector<string> bestFirstSearch(const map<string, vector<string>>& adjacentList, const string& startCity, const string& goal) {
     priority_queue<pair<double, string>, vector<pair<double, string>>, greater<>> toExplore;
     unordered_map<string, string> cameFrom;
@@ -155,7 +156,7 @@ vector<string> bestFirstSearch(const map<string, vector<string>>& adjacentList, 
     return {};
 }
 
-// A* Search to find a path between two cities
+// A* Search to find a path between two cities. Implemented with help from ChatGPT
 vector<string> aStar(const map<string, vector<string>>& adjacentList, const string& startCity, const string& goal) {
     priority_queue<pair<double, string>, vector<pair<double, string>>, greater<>> toExplore;
     unordered_map<string, string> cameFrom;
